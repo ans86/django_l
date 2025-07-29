@@ -1,0 +1,33 @@
+.contact-form-container {
+    background-color: #2c2c2e;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    margin-top: 120px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.contact-form-container .form-label {
+    font-weight: bold;
+    color: #f8f9fa;
+}
+
+.contact-form-container .form-control {
+    background-color: #3a3a3c;
+    color: white;
+    border: 1px solid #6c757d;
+}
+
+.contact-form-container .form-control::placeholder {
+    color: #b1b1b1;
+}
+
+.contact-form-container .btn-primary {
+    background-color: #ff4141;
+    border: none;
+}
+
+.contact-form-container .btn-primary:hover {
+    background-color: #d63333;
+}
