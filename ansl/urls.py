@@ -29,4 +29,5 @@ urlpatterns = [
     path('about/', views.about_view, name="about"),
     # Contact app urls
     path('contact/', include('contact.urls')),
+    path('game/', include('game.urls')),
 ]
