@@ -12,3 +12,8 @@ def game(request):
         game_obj.save()
 
     return render(request, 'game.html')
+
+
+def game_list(request):
+    games=Game.objects.all()
+    return render(request, 'home.html',games=games)

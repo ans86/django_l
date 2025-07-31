@@ -90,6 +90,11 @@
    <div class="body">
   <body>
     <div class="container">
+      
+      {% for game in games  %}
+      <p>{{game.name}}</p>
+      {% endfor %}
+        
     <div class="p-5 mb-2 .bg-lighttext-secondary-emphasis">
     <h1 style="font-size: 50px;text-align: center; padding: 10px; margin-bottom: 0.1px;">
          <b><b>Attack on Titan</b></b></h1>
