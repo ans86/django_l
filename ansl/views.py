@@ -11,11 +11,11 @@ def aot_view(request):
      return render(request, 'aot.html')
 
 def home_view(request):
-     games=Game.objects.all()
-     context = {
-          "games":games
-     }
-     return render(request, 'home.html',context)
+    games = Game.objects.all()
+    context = {
+        "games": games
+    }
+    return render(request, 'home.html', context)
 
 def seasons_view(request):
      return render(request, 'seasons.html')
