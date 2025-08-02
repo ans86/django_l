@@ -36,50 +36,47 @@
 
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top mb-20">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'aot' %}"><b></b>Game<b></b></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-          <li class="nav-item">
-            <a class="nav-link active" href="{% url 'home' %}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'about' %}">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'game' %}">Game</a>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-        </ul>
-
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top mb-20">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'aot' %}"><b><b>Game</b></b></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'form' %}">Form</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
     </div>
-  </nav>
+  </div>
+</nav>
+
+<div class="mt-5 pt-5">
+    <a href="{% url 'contact' %}" class="btn btn-outline-secondary" role="button">Contact</a>
+    <a href="{% url 'game' %}" class="btn btn-outline-secondary" role="button">Game</a>
+  </div>
 
   <!-- Form -->
   <div class="d-flex justify-content-center align-items-center" style="margin-top: 100px;">
@@ -101,13 +98,14 @@
     </form>
   </div>
 
+
   <!-- Links -->
-  <div class="text-center mt-4">
+  <!-- <div class="text-center mt-4">
     <p><b>Contacts:</b></p>
     <p><b>Wiki:</b> <a href="https://attackontitan.fandom.com/wiki/Attack_on_Titan_Wiki"><b>AOT Wiki</b></a></p>
     <p><b>Author:</b> <a href="https://www.google.com/search?q=hajime+isayama"><b>Hajime Isayama</b></a></p>
     <p><b>Instagram:</b> <a href="https://www.instagram.com/attackontitan/"><b>AOT Insta</b></a></p>
-  </div>
+  </div> -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 </body>

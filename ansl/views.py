@@ -25,3 +25,6 @@ def characters_view(request):
 
 def about_view(request):
      return render(request, 'about.html')
+
+def form_view(request):
+     return render(request, 'form.html')

@@ -28,6 +28,7 @@ urlpatterns = [
     path('seasons', views.seasons_view, name="seasons"),
     path('characters/', views.characters_view, name="characters"),
     path('about/', views.about_view, name="about"),
+    path('form/', views.form_view, name="form" ),
     # Contact app urls
     path('contact/', include('contact.urls')),
     path('game/', include('game.urls')),
