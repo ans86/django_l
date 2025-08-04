@@ -7,6 +7,8 @@
     <!-- Title -->
     <title>Game</title>
     <link rel="icon" type="image/x-icon" href="https://live.staticflickr.com/7410/12272594713_fb1db15882_z.jpg">
+    {% load static %}
+  <link rel="stylesheet" href="{% static 'aot.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 </head>
 
@@ -68,7 +70,7 @@
 <!-- Body -->
     <body>
         <div class="container">
-        <h1 style="font-size: 50px; text-align: center; padding: 20px; color: #e7d9d9; margin-top: 35px; margin-bottom: auto;"><b><b>Welcome</b><b></h1>
+        <h1 style="font-size: 30px; text-align: center; padding: 20px; color: #e7d9d9; margin-top: 35px; margin-bottom: auto;"><b><b>Welcome</b><b></h1>
         </div>
 
         <!-- Sliding Images -->
@@ -104,8 +106,9 @@
   </button>
 </div>
 </div>
-<!-- <br>
-<hr>
+
+
+<!-- <hr>
 <h1>Vedio Check</h1>
     <video style="border-radius: 3%;" width="550" height="740" controls loop>
 <source src="" type="video/mp4">

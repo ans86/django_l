@@ -72,32 +72,37 @@
     </div>
   </div>
 </nav>
-
-<div class="mt-5 pt-5">
+<div style="transform: scale(0.8); transform-origin: top center;">
+<div class="mt-5 pt-3">
     <a href="{% url 'contact' %}" class="btn btn-outline-secondary" role="button">Contact</a>
     <a href="{% url 'game' %}" class="btn btn-outline-secondary" role="button">Game</a>
   </div>
 
   <!-- Form -->
-  <div class="d-flex justify-content-center align-items-center" style="margin-top: 100px;">
-    <form class="custom-form" method="post" action="{% url 'game' %}" enctype="multipart/form-data">
-      {% csrf_token %}
-      <div class="mb-3">
-        <label class="form-label">Name</label>
-        <input name="name" type="text" class="form-control" placeholder="Name">
-      </div>
-      <div class="mb-3">
-        <label for="formFile" class="form-label">Select Image</label>
-        <input name="image" class="form-control" type="file" id="formFile">
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Detail</label>
-        <textarea name="message" class="form-control" rows="4" style="height: 130px;"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
+<div class="d-flex justify-content-center align-items-center" style="margin-top: 100px;">
+  <form class="custom-form" method="post" action="{% url 'game' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="mb-3" style="width: 100%;">
+      <label class="form-label"><b>Name</b></label>
+      <input name="name" type="text" class="form-control" placeholder="Name">
+    </div>
+    
+    <div class="mb-3" style="width: 100%;">
+      <label for="formFile" class="form-label"><b>Select Image</b></label>
+      <input name="image" class="form-control" type="file" id="formFile">
+    </div>
+    
+    <div class="mb-3" style="width: 100%;">
+      <label class="form-label"><b>Detail</b></label>
+      <textarea name="message" class="form-control" rows="4" placeholder="Enter game details..." style="height: 130px;"></textarea>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
 
+</div>
 
   <!-- Links -->
   <!-- <div class="text-center mt-4">
