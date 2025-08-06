@@ -20,18 +20,24 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from django.contrib import admin
+from . import views
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('aot/', views.aot_view, name='aot'),
+    path('gam/', views.gam_view, name='gam'),
     path('home', views.home_view, name="home"),
-    path('seasons', views.seasons_view, name="seasons"),
-    path('characters/', views.characters_view, name="characters"),
     path('about/', views.about_view, name="about"),
     path('form/', views.form_view, name="form" ),
-    # Contact app urls
+    path('laptops/', views.laptops_view, name="laptops" ),
+    #Contact app urls
     path('contact/', include('contact.urls')),
     path('game/', include('game.urls')),
+    path('laptop/', include('laptop.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

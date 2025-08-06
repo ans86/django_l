@@ -5,7 +5,7 @@
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Game Contact</title>
+    <title>Contact</title>
     <link rel="icon" type="image/x-icon" href="https://live.staticflickr.com/7410/12272594713_fb1db15882_z.jpg">
 
     {% load static %}
@@ -41,7 +41,7 @@
    <!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top mb-20">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{% url 'aot' %}"><b><b>Game</b></b></a>
+    <a class="navbar-brand" href="{% url 'gam' %}"><b><b>Game</b></b></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -51,21 +51,13 @@
           <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="{% url 'laptops' %}">Laptops</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="{% url 'about' %}">About</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'form' %}">Form</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
         </li>
       </ul>
       <form class="d-flex" role="search">
@@ -83,11 +75,12 @@
   <div class="mt-5 pt-3">
     <a href="{% url 'contact' %}" class="btn btn-outline-secondary me-2" role="button">Contact</a>
     <a href="{% url 'game' %}" class="btn btn-outline-secondary" role="button">Game</a>
+    <a href="{% url 'laptop' %}" class="btn btn-outline-secondary" role="button">Laptops</a>
   </div>
 
   <!-- Contact Form -->
   <div class="d-flex justify-content-center align-items-center">
-    <form class="custom-form" style="margin-top: 90px;" method="post" action="{% url 'contact' %}">
+    <form class="custom-form" style="margin-top: 50px;" method="post" action="{% url 'contact' %}">
       {% csrf_token %}
       <div class="mb-3" style="width: 400px;">
         <label for="name" class="form-label"><b>Name</b></label>

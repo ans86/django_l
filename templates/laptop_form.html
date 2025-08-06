@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laptop</title>
+
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'laptop.css' %}">
+  <link rel="icon" type="image/x-icon" href="https://live.staticflickr.com/7410/12272594713_fb1db15882_z.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+  <style>
+    body {
+      background-color: #1c1c1e;
+      color: #f8f9fa;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #ffc107;
+      transition: 0.3s;
+    }
+
+    .navbar-brand {
+      letter-spacing: 1px;
+    }
+
+    .custom-form {
+      max-width: 600px;
+      width: 100%;
+      padding: 20px;
+    }
+  
+  .form-control {
+    background-color: #2c2c2e;
+    color: #f8f9fa;
+    border: 1px solid #444;
+  }
+
+  .form-control:focus {
+    background-color: #2c2c2e;
+    color: #fff;
+    border-color: #0d6efd;
+    box-shadow: none;
+  }
+
+  label {
+    color: #ccc;
+  }
+</style>
+
+</head>
+
+<body>
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top mb-20">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'gam' %}"><b><b>Game</b></b></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'laptops' %}">Laptops</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'form' %}">Form</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div class="mt-5 pt-5">
+    <a href="{% url 'contact' %}" class="btn btn-outline-secondary" role="button">Contact</a>
+    <a href="{% url 'game' %}" class="btn btn-outline-secondary" role="button">Game</a>
+    <a href="{% url 'laptop' %}" class="btn btn-outline-secondary" role="button">Laptops</a>
+  </div>
+
+<!-- Centered & Compact Form -->
+<div class="container mt-5">
+  <div class="bg-dark text-white p-5 rounded-4 shadow-lg mx-auto" style="max-width: 600px;">
+    <h2 class="mb-4 text-center">Laptop Info Form</h2>
+
+    <form class="custom-form" method="post" action="{% url 'laptop' %}" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" name="name" id="name" placeholder="Enter name">
+        <label for="name">Name</label>
+      </div>
+
+      <div class="mb-3">
+        {% comment %} <label for="formFile" class="form-label">Select Image</label> {% endcomment %}
+        <input class="form-control" type="file" name="image" id="formFile">
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" name="generation" id="generation" placeholder="Enter generation">
+        <label for="generation">Generation</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="number" class="form-control" name="ram" id="ram" placeholder="Enter RAM">
+        <label for="ram">RAM (GB)</label>
+      </div>
+
+      <div class="form-floating mb-4">
+        <input type="number" class="form-control" name="ssd" id="ssd" placeholder="Enter SSD">
+        <label for="ssd">SSD (GB)</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <textarea name="details" class="form-control" placeholder="Enter details" id="details" style="height: 100px"></textarea>
+        <label for="details">Details</label>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 py-2">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+  <!-- Links -->
+  <!-- <div class="text-center mt-4">
+    <p><b>Contacts:</b></p>
+    <p><b>Wiki:</b> <a href="https://attackontitan.fandom.com/wiki/Attack_on_Titan_Wiki"><b>AOT Wiki</b></a></p>
+    <p><b>Author:</b> <a href="https://www.google.com/search?q=hajime+isayama"><b>Hajime Isayama</b></a></p>
+    <p><b>Instagram:</b> <a href="https://www.instagram.com/attackontitan/"><b>AOT Insta</b></a></p>
+  </div> -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</body>
+</html>
