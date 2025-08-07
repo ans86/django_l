@@ -95,6 +95,7 @@
       <p class="card-text"><strong>Made In:</strong> {{ car.madein }}</p>
       <p class="card-text"><strong>Top Speed:</strong> {{ car.topspeed }}</p>
       <p class="card-text"><small class="text-light">Posted on: {{ car.timeStamp|date:"M d, Y H:i" }}</small></p>
+      <a href="{% url 'car_detail' car.id %}" class="btn btn-outline-light mt-auto">Car Detail {{ car.id }}</a>
     </div>
   </div>
 </div>
