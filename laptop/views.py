@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from laptop.models import Laptop
 
-
-# ✅ Add Laptop
 def laptop(request):
     if request.method == "POST":
         name = request.POST.get('name')
@@ -30,20 +28,16 @@ def laptop(request):
 
     return render(request, 'laptop_form.html')
 
-
-# ✅ List Laptops
 def laptop_list(request):
     laptops = Laptop.objects.all().order_by('-timeStamp')
     return render(request, 'laptops.html', {'laptops': laptops})
 
 
-# ✅ Laptop Detail View
 def laptop_detail(request, id):
     laptop_detail = get_object_or_404(Laptop, id=id)
     return render(request, 'laptop_detail.html', {'laptop_detail': laptop_detail})
 
 
-# ✅ Edit Laptop
 def laptop_edit(request, id):
     laptop = get_object_or_404(Laptop, id=id)
 
@@ -55,14 +49,12 @@ def laptop_edit(request, id):
         ram = request.POST.get('ram')
         ssd = request.POST.get('ssd')
 
-        # Validate important fields
         if not name or not details or not generation or not ram or not ssd:
             return render(request, 'laptop_edit.html', {
                 'laptop': laptop,
                 'error': 'Please fill in all fields.'
             })
 
-        # Update fields
         laptop.name = name
         laptop.details = details
         laptop.generation = generation
@@ -77,9 +69,7 @@ def laptop_edit(request, id):
 
     return render(request, 'laptop_edit.html', {'laptop': laptop})
 
-
-# ✅ Delete Laptop
 def laptop_delete(request, id):
     laptop = get_object_or_404(Laptop, id=id)
     laptop.delete()
-    return redirect('laptops')  # Assuming your laptop list view is named 'laptops'
+    return redirect('laptops')

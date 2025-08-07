@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from game.models import Game
 from laptop.models import Laptop
+from car.models import Car
 
 def index(request):
     return render(request, 'gam.html')
@@ -29,3 +30,11 @@ def laptops_view(request):
         "laptops": laptops
     }
     return render(request, 'laptops.html', context)
+
+def cars_view(request):
+    cars = Car.objects.all()
+    context = {
+        "cars": cars
+    }
+    return render(request, 'cars.html', context)
+

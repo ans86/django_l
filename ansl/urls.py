@@ -20,12 +20,6 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from django.contrib import admin
-from . import views
-from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
@@ -34,10 +28,12 @@ urlpatterns = [
     path('about/', views.about_view, name="about"),
     path('form/', views.form_view, name="form" ),
     path('laptops/', views.laptops_view, name="laptops" ),
+    path('cars/', views.cars_view, name="cars" ),
     #Contact app urls
-    path('contact/', include('contact.urls')),
-    path('game/', include('game.urls')),
-    path('laptop/', include('laptop.urls')),
+    path('contact_form/', include('contact.urls')),
+    path('game_form/', include('game.urls')),
+    path('laptop_form/', include('laptop.urls')),
+    path('cars_form/', include('car.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'contact.apps.ContactConfig',
     'game.apps.GameConfig',
     'laptop.apps.LaptopConfig',
+    'car.apps.CarConfig',
 ]
 
 MIDDLEWARE = [

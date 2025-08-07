@@ -5,7 +5,7 @@
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contact</title>
+    <title>Contact Form</title>
     <link rel="icon" type="image/x-icon" href="https://live.staticflickr.com/7410/12272594713_fb1db15882_z.jpg">
 
     {% load static %}
@@ -39,9 +39,10 @@
    <!-- Body -->
     <body>
    <!-- Navbar -->
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top mb-20">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{% url 'gam' %}"><b><b>Game</b></b></a>
+    <a class="navbar-brand" href="{% url 'gam' %}"><b>Game</b></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -52,6 +53,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'laptops' %}">Laptops</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'cars' %}">Cars</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'about' %}">About</a>
@@ -68,14 +72,18 @@
   </div>
 </nav>
 
+Shrink Wrapper
+<div style="transform: scale(0.9); transform-origin: top center;">
+
 <!-- Shrink Wrapper -->
 <div style="transform: scale(0.8); transform-origin: top center;">
 
   <!-- Navigation Buttons -->
   <div class="mt-5 pt-3">
     <a href="{% url 'contact' %}" class="btn btn-outline-secondary me-2" role="button">Contact</a>
-    <a href="{% url 'game' %}" class="btn btn-outline-secondary" role="button">Game</a>
-    <a href="{% url 'laptop' %}" class="btn btn-outline-secondary" role="button">Laptops</a>
+    <a href="{% url 'game' %}" class="btn btn-outline-secondary me-2" role="button">Game</a>
+    <a href="{% url 'laptop' %}" class="btn btn-outline-secondary" role="button">Laptop</a>
+    <a href="{% url 'car' %}" class="btn btn-outline-secondary" role="button">Car</a>
   </div>
 
   <!-- Contact Form -->
@@ -103,34 +111,8 @@
   </div>
 
 </div>
-
-
-
-<!-- <form method="post" action="{% url 'contact' %}">
-  {% csrf_token %}
-  <div class="mb-3" style="width: 400px;">
-    <label for="exampleInputEmail1" class="form-label">Name</label>
-    <input name="name" type="name" class="form-control" aria-describedby="username" placeholder="Username" >
-  </div>
-  <div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Email address</label>
-  <input name="email" type="email" class="form-control" id="enmail" placeholder="name@example.com">
 </div>
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-  <textarea name="message"  class="form-control" placeholder="Type your message here..." id="message" rows="3" style="height: 136px;"></textarea>
 </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form> -->
-</div>
-<br>
-<br>
-         <!-- Links -->
-<!-- <p style="color: aliceblue;"><b>Contacts:</b></p>
-<p style="color: aliceblue;"><b>Wiki:</b><a href="https://attackontitan.fandom.com/wiki/Attack_on_Titan_Wiki"><b><b> AOT Wiki</b></b></a>
-<p style="color: aliceblue;"><b>Auther:</b><a href="https://www.google.com/search?q=hajime+isayama&sca_esv=cab469c6dae8b008&rlz=1C1BFEM_en-GBPK1171PK1171&sxsrf=AE3TifMV3xEq8mZhQHz_zJj9FdU3DckVpQ%3A1752942245044&ei=pcZ7aJO7Av36kdUPhbDr-QI&ved=0ahUKEwjToc_eqsmOAxV9faQEHQXYOi8Q4dUDCBA&uact=5&oq=hajime+isayama&gs_lp=Egxnd3Mtd2l6LXNlcnAiDmhhamltZSBpc2F5YW1hMgoQIxiABBgnGIoFMgoQIxiABBgnGIoFMgUQLhiABDIFEC4YgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgARItTpQ8gNY1DJwAXgCkAEAmAGLCqAB70KqAQ0yLTEuMy4yLjAuMi40uAEDyAEA-AEBmAIFoALqDcICBBAAGEfCAgYQABgIGB7CAgsQABiABBiGAxiKBcICBRAAGO8FwgIEEAAYHsICCBAAGIAEGKIEmAMAiAYBkAYIkgcLMi4zLTEuMS4wLjGgB6ZisgcJMy0xLjEuMC4xuAetDcIHBTMtMi4zyAd2&sclient=gws-wiz-serp"><b><b> Hajime Isayama</b></b></a>
-<p style="color: aliceblue;"><b>Instagram:</b><a href="https://www.instagram.com/attackontitan/"><b><b> AOT Insta</b></b></a> -->
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
   </body>

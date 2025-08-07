@@ -8,10 +8,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 </head>
 
+<!-- Style -->
+ <style>
+   body {
+    background-color: #1c1c1e;
+    color: #f8f9fa;
+   } 
+   </style>
+
+
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top mb-90">
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top mb-20">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{% url 'gam' %}"><b><b>Game</b></b></a>
+    <a class="navbar-brand" href="{% url 'gam' %}"><b>Game</b></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -22,6 +31,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'laptops' %}">Laptops</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'cars' %}">Cars</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'about' %}">About</a>
@@ -39,10 +51,10 @@
 </nav>
 
 
-<body class="bg-dark text-white">
+<body class="text-white">
 
 <div class="container mt-5">
-    <h2 class="text-center mb-4">Laptop Listings</h2>
+    <h2 class="text-center mb-4 p-3">Laptop Listings</h2>
     <div class="row">
         {% for laptop in laptops %}
             <div class="col-md-4 mb-4">
