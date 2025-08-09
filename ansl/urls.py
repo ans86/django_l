@@ -29,6 +29,9 @@ urlpatterns = [
     path('form/', views.form_view, name="form" ),
     path('laptops/', views.laptops_view, name="laptops" ),
     path('cars/', views.cars_view, name="cars" ),
+    path('author/', views.author_view, name='author_form'),
+    path('book/', views.book_view, name='book_form'),
+    path('list/', views.author_book_list_view, name='author_book_list'),
     #Contact app urls
     path('contact_form/', include('contact.urls')),
     path('game_form/', include('game.urls')),

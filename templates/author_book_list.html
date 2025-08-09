@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Authors & Books</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 70%;
+            margin: 20px auto;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+        th {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;">Authors & Their Books</h2>
+
+    <table>
+        <tr>
+            <th>Author Name</th>
+            <th>Books</th>
+        </tr>
+        {% for author in authors %}
+        <tr>
+            <td>{{ author.name }}</td>
+            <td>
+                {% if author.book_set.all %}
+                    <ul>
+                        {% for book in author.book_set.all %}
+                            <li>
+                                {{ book.name }} ({{ book.publishyear }})
+                                {% if book.image %}
+                                    <br>
+                                    <img src="{{ book.image.url }}" alt="{{ book.name }}" width="80">
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    No books yet
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div style="text-align:center;">
+        <a href="{% url 'author_form' %}">Add Author</a> | 
+        <a href="{% url 'book_form' %}">Add Book</a>
+    </div>
+</body>
+</html>

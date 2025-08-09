@@ -8,7 +8,7 @@
 <body class="bg-dark text-white">
 
 <div class="container mt-5">
-    <a href="{% url 'home' %}" class="btn btn-light mb-3">← Back</a>
+    <a href="{% url 'home' %}" class="btn btn-light mb-3">◀ Back</a>
 
     <div class="card bg-secondary shadow rounded-4">
         <img src="{{ game_detail.image.url }}" class="card-img-top rounded-top-4" style="height: 400px; object-fit: cover;" alt="{{ game_detail.name }}">
@@ -16,6 +16,7 @@
             <h2 class="card-title">{{ game_detail.name }}</h2>
             <p class="card-text"><strong>Details:</strong> {{ game_detail.details }}</p>
             <a href="{% url 'game_edit' game_detail.id %}" class="btn btn-outline-light mt-auto">Edit</a>
+            <a href="{% url 'game_delete' game_detail.id %}" class="btn btn-outline-danger mt-auto">Delete</a>
         </div>
     </div>
 </div>

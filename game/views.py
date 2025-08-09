@@ -53,7 +53,7 @@ def game_edit(request, id):
 
     return render(request, 'game_edit.html', {'game': game})
 
-# def game_delete(request, id):
-#     game = get_object_or_404(Game, id=id)
-#     game.delete()
-#     return redirect('games')
+def game_delete(request, id):
+    game = get_object_or_404(Game, id=id)
+    game.delete()
+    return redirect('games')

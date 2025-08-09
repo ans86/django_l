@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'game.apps.GameConfig',
     'laptop.apps.LaptopConfig',
     'car.apps.CarConfig',
+    'data.apps.DataConfig',
 ]
 
 MIDDLEWARE = [

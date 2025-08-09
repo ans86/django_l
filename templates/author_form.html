@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Author</title>
+
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'game.css' %}">
+  <link rel="icon" type="image/x-icon" href="https://live.staticflickr.com/7410/12272594713_fb1db15882_z.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+  <style>
+    body {
+      background-color: #1c1c1e;
+      color: #f8f9fa;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #ffc107;
+      transition: 0.3s;
+    }
+
+    .navbar-brand {
+      letter-spacing: 1px;
+    }
+
+    .custom-form {
+      max-width: 600px;
+      width: 100%;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top mb-20">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'gam' %}"><b>Game</b></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'laptops' %}">Laptops</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'cars' %}">Cars</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'form' %}">Form</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+Shrink Wrapper
+<div style="transform: scale(0.9); transform-origin: top center;">
+
+<!-- Shrink Wrapper -->
+<div style="transform: scale(0.8); transform-origin: top center;">
+
+  <!-- Navigation Buttons -->
+  <div class="mt-5 pt-3">
+    <a href="{% url 'contact' %}" class="btn btn-outline-secondary me-2" role="button">Contact</a>
+    <a href="{% url 'game' %}" class="btn btn-outline-secondary me-2" role="button">Game</a>
+    <a href="{% url 'laptop' %}" class="btn btn-outline-secondary" role="button">Laptop</a>
+    <a href="{% url 'car' %}" class="btn btn-outline-secondary" role="button">Car</a>
+  </div>
+
+  <!-- Game Form -->
+  <div class="d-flex justify-content-center align-items-center">
+    <form class="custom-form" style="margin-top: 50px;" method="post" action="{% url 'author_form' %}" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <div class="mb-3" style="width: 400px;">
+        <label for="name" class="form-label"><b>Name</b></label>
+        <input name="name" type="text" class="form-control" id="name" placeholder="Enter Name">
+      </div>
+      <button type="submit">Save Author</button>
+    </form>
+  </div>
+</div>
+
+<br>
+    
+<a href="{% url 'book_form' %}">Go to Add Book</a>
+
+    
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</body>
+</html>
