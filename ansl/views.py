@@ -44,9 +44,6 @@ def author_book_list_view(request):
     authors = Author.objects.all()
     return render(request, 'author_book_list.html', {'authors': authors})
 
-def author_view(request):
-     return render(request, 'author_form.html')
-
 def book_view(request):
      return render(request, 'book_form.html')
 

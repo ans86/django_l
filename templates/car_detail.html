@@ -5,6 +5,24 @@
     <title>{{ car_detail.name }} - Details</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
+
+<!-- Style -->
+    <style>
+   body {
+    background-color: #1c1c1e;
+    color: #f8f9fa;
+   } 
+
+   .navbar-nav .nav-link:hover {
+    color: #ffc107;
+    transition: 0.3s;
+  }
+
+  .navbar-brand {
+    letter-spacing: 1px;
+}
+   </style>
+
 <body class="bg-dark text-white">
 
 <div class="container mt-5">
@@ -20,6 +38,22 @@
             <p class="card-text"><strong>Price:</strong> {{ car_detail.price }}</p>
             <p class="card-text"><strong>Made In:</strong> {{ car_detail.madein }}</p>
             <p class="card-text"><strong>Top Speed:</strong> {{ car_detail.topspeed }}</p>
+            <br>
+            <h3>Reviews</h3>
+            {% if reviews %}
+            {% for review in reviews %}
+            <p><strong>Name:</strong> {{ review.name }}</p>
+            <p><strong>Review:</strong> {{ review.review }}</p>
+            <p><strong>Rating:</strong> {{ review.rating }} / 5</p>
+            <hr>
+            {% endfor %}
+            {% else %}
+            <p>No reviews yet.</p>
+            {% endif %}
+            <a href="{% url 'car_review' car_detail.id %}" class="btn btn-outline-primary mt-auto">Review</a>
+            <br>
+            <br>
+
             <a href="{% url 'car_edit' car_detail.id %}" class="btn btn-outline-light mt-auto">Edit</a>
             <a href="{% url 'car_delete' car_detail.id %}" class="btn btn-outline-danger mt-auto">Delete</a>
         </div>

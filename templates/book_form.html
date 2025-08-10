@@ -82,9 +82,10 @@ Shrink Wrapper
     <a href="{% url 'car' %}" class="btn btn-outline-secondary" role="button">Car</a>
   </div>
 
-  <!-- Game Form -->
+  <!-- Book Form -->
   <div class="d-flex justify-content-center align-items-center">
-    <form method="POST" enctype="multipart/form-data">
+
+    <form class="custom-form" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <label>Book Name:</label>
     <input type="text" name="name" required><br><br>
@@ -97,12 +98,12 @@ Shrink Wrapper
 
     <label>Author:</label>
     <select name="author" required>
-        {% for author in authors %}
+        {% for authors in authors %}
             <option value="{{ author.id }}">{{ author.name }}</option>
         {% endfor %}
     </select><br><br>
 
-    <button type="submit">Save</button>
+    <button type="submit" class="btn btn-primary">Save</button>
 </form>
   </div>
 </div>

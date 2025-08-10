@@ -1,5 +1,5 @@
 from django.shortcuts import render , HttpResponse, redirect, get_object_or_404
-from car.models import Car
+from car.models import Car, Review
 
 
 def car(request):
@@ -14,16 +14,46 @@ def car(request):
         topspeed = request.POST['topspeed']
         car = Car(name=name, image=image, model=model, engine=engine, enginepower=enginepower, price=price, madein=madein, topspeed=topspeed)
         car.save()
-    return render(request, "cars_form.html")
+    return render(request, "car_form.html")
 
 def car_list(request):
     cars = Car.objects.all().order_by('-timeStamp')
     return render(request, 'cars.html', {'cars': cars})
 
 
+def car_review(request, id):
+    car = get_object_or_404(Car, id=id)
+
+    if request.method == "POST":
+        name = request.POST.get('name')
+        review_text = request.POST.get('review')
+        rating = request.POST.get('rating')
+
+        # convert rating to int safely
+        try:
+            rating = int(rating)
+        except (TypeError, ValueError):
+            rating = 0
+
+        Review.objects.create(
+            car=car,
+            name=name,
+            review=review_text,
+            rating=rating,
+        )
+
+        return redirect('car_detail', id=car.id)
+
+    return render(request, 'review.html', {'car': car})
+
+
 def car_detail(request, id):
-    car_detail = get_object_or_404(Car, id=id)
-    return render(request, 'car_detail.html', {'car_detail': car_detail})
+    car = get_object_or_404(Car, id=id)
+    reviews = Review.objects.filter(car=car)  # all reviews for this car
+    return render(request, 'car_detail.html', {
+        'car_detail': car,
+        'reviews': reviews
+    })
 
 
 def car_edit(request, id):

@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import author, book
+from .views import author
 
 urlpatterns = [
     path('', author, name='author'),
-    path('', book, name='book'),
+
 ]
