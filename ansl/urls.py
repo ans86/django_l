@@ -25,18 +25,16 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('gam/', views.gam_view, name='gam'),
     path('home', views.home_view, name="home"),
-    path('about/', views.about_view, name="about"),
-    path('form/', views.form_view, name="form" ),
     path('laptops/', views.laptops_view, name="laptops" ),
     path('cars/', views.cars_view, name="cars" ),
-    path('book/', views.book_view, name='book_form'),
-    path('list/', views.author_book_list_view, name='author_book_list'),
+    path('author_form/', views.author_form_view, name="author_form" ),
+    path('books/', views.books_view, name="books" ),
     #Contact app urls
     path('contact_form/', include('contact.urls')),
     path('game_form/', include('game.urls')),
     path('laptop_form/', include('laptop.urls')),
     path('car_form/', include('car.urls')),
-    path('author_form/', include('data.urls')),
+    path('book_form/', include('book.urls')),
     
 
 ]

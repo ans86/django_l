@@ -53,7 +53,8 @@
 </head>
 
 <body>
-  <!-- Navbar -->
+
+ <!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top mb-20">
   <div class="container-fluid">
     <a class="navbar-brand" href="{% url 'gam' %}"><b>Game</b></a>
@@ -72,10 +73,19 @@
           <a class="nav-link active" aria-current="page" href="{% url 'cars' %}">Cars</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'about' %}">About</a>
+          <a class="nav-link" href="{% url 'books' %}">Books</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'form' %}">Form</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Form
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href=" {% url 'contact' %}">Contact</a></li>
+            <li><a class="dropdown-item" href=" {% url 'game' %}">Game</a></li>
+            <li><a class="dropdown-item" href=" {% url 'laptop' %}">Laptop</a></li>
+            <li><a class="dropdown-item" href=" {% url 'car' %}">Car</a></li>
+            <li><a class="dropdown-item" href=" {% url 'book' %}">Book</a></li>
+          </ul>
         </li>
       </ul>
       <form class="d-flex" role="search">
@@ -92,16 +102,8 @@
 <!-- Shrink Wrapper -->
 <div style="transform: scale(0.8); transform-origin: top center;">
 
-  <!-- Navigation Buttons -->
-  <div class="mt-5 pt-5">
-    <a href="{% url 'contact' %}" class="btn btn-outline-secondary me-2" role="button">Contact</a>
-    <a href="{% url 'game' %}" class="btn btn-outline-secondary me-2" role="button">Game</a>
-    <a href="{% url 'laptop' %}" class="btn btn-outline-secondary" role="button">Laptop</a>
-    <a href="{% url 'car' %}" class="btn btn-outline-secondary" role="button">Car</a>
-  </div>
-
   <!-- Laptop Form -->
-  <div class="d-flex justify-content-center align-items-center">
+  <div class="d-flex justify-content-center align-items-center p-5 mt-5">
     <form class="custom-form mt-4" method="post" action="{% url 'laptop' %}" enctype="multipart/form-data">
       {% csrf_token %}
 

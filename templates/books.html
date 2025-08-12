@@ -1,21 +1,44 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
 <head>
-    <meta charset="UTF-8">
-    <title>Laptop List</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Metas -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Title -->
+    <title>Books</title>
+    <link rel="icon" type="image/x-icon" href="https://live.staticflickr.com/7410/12272594713_fb1db15882_z.jpg">
+    {% load static %}
+  <link rel="stylesheet" href="{% static 'aot.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 </head>
 
 <!-- Style -->
- <style>
+    <style>
    body {
     background-color: #1c1c1e;
     color: #f8f9fa;
    } 
-   </style>
 
+   .navbar-nav .nav-link:hover {
+    color: #ffc107;
+    transition: 0.3s;
+  }
+
+  .navbar-brand {
+    letter-spacing: 1px;
+}
+
+.card-hover-zoom {
+  transition: transform 0.3s ease;
+}
+.card-hover-zoom:hover {
+  transform: scale(1.03);
+}
+.card-hover-zoom:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+   </style>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top mb-20">
@@ -59,34 +82,38 @@
   </div>
 </nav>
 
+<!-- Body -->
+    <body>
 
-<body class="text-white">
 
+      <!-- Loop -->
 <div class="container mt-5">
-    <h2 class="text-center mb-4 p-3">Laptops Listing</h2>
+    <h2 class="text-center mb-4 p-3">Books Listing</h2>
     <div class="row">
-        {% for laptop in laptops %}
+        {% for book in books %}
             <div class="col-md-4 mb-4">
-                <div class="card bg-secondary text-white h-100 shadow rounded-4">
-                    <img src="{{ laptop.image.url }}" class="card-img-top rounded-top-4" alt="{{ laptop.name }}" style="height: 250px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ laptop.name }}</h5>
-                        <p class="card-text"><strong>Generation:</strong> {{ laptop.generation }}</p>
-                        <p class="card-text"><strong>Details:</strong> {{ laptop.details }}</p>
-                        <p class="card-text"><strong>RAM:</strong> {{ laptop.ram }} GB</p>
-                        <p class="card-text"><strong>SSD:</strong> {{ laptop.ssd }} GB</p>
-                        <p class="card-text"><small class="text-light">Posted on: {{ laptop.timeStamp|date:"M d, Y H:i" }}</small></p>
-                        <a href="{% url 'laptop_detail' laptop.id %}" class="btn btn-outline-light mt-auto">Laptop Detail {{ laptop.id }}</a>
-                    </div>
-                </div>
-            </div>
+  <div class="card card-hover-zoom bg-dark text-white shadow rounded-4 border-0 h-100"
+       style="min-height: 500px;">
+    <img src="{{ book.image.url }}" class="card-img-top rounded-top-4" alt="{{ book.name }}" style="height: 250px; object-fit: cover;">
+    <div class="card-body">
+      <h5 class="card-title">{{ book.title }}</h5>
+      <p class="card-text"><strong>Author:</strong> {{ book.author }}</p>
+      <p class="card-text"><strong>Publish Year:</strong> {{ book.publishyear }}</p>
+      <p class="card-text"><small class="text-light">Posted on: {{ book.timeStamp|date:"M d, Y H:i" }}</small></p>
+    </div>
+  </div>
+</div>
+
         {% empty %}
-            <p class="text-center">No laptops available.</p>
+            <p class="text-center">No books available.</p>
         {% endfor %}
     </div>
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-</body>
+
+            <!-- Bootstrap -->
+        <!-- <a href="home">Go To Homepage</a> -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    </body>
 </html>
