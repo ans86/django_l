@@ -57,6 +57,7 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'books' %}">Books</a>
         </li>
+      
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Form
@@ -67,6 +68,7 @@
             <li><a class="dropdown-item" href=" {% url 'laptop' %}">Laptop</a></li>
             <li><a class="dropdown-item" href=" {% url 'car' %}">Car</a></li>
             <li><a class="dropdown-item" href=" {% url 'book' %}">Book</a></li>
+           
           </ul>
         </li>
       </ul>
@@ -102,7 +104,15 @@ Shrink Wrapper
 
       <div class="mb-3" style="width: 400px;">
         <label for="author" class="form-label"><b>Author</b></label>
-        <input name="author" type="text" class="form-control" id="author" placeholder="Enter Author">
+
+<select name="author" class="form-select form-select-sm" aria-label="Small select example">
+  <option selected>Open this select menu</option>
+ 
+ {% for author in authors  %}
+   <option value="{{author.id}}">{{author.name}}</option>
+ {% endfor %}
+  
+</select>
       </div>
 
       <div class="mb-3" style="width: 400px;">

@@ -27,7 +27,7 @@ def laptops_view(request):
     }
     return render(request, 'laptops.html', context)
 
-def cars_view(request):
+def cars(request):
     cars = Car.objects.all()
     context = {
         "cars": cars
