@@ -35,6 +35,3 @@ def authors(request, book_id):
         author.save()
 
     return render(request, "add_authors.html", {"book": book})
-
-
-

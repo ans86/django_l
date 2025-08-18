@@ -38,9 +38,6 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'books' %}">Books</a>
         </li>
-         <li class="nav-item">
-          <a class="nav-link" href=>Authors</a>
-        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Form
@@ -51,14 +48,36 @@
             <li><a class="dropdown-item" href=" {% url 'laptop' %}">Laptop</a></li>
             <li><a class="dropdown-item" href=" {% url 'car' %}">Car</a></li>
             <li><a class="dropdown-item" href=" {% url 'book' %}">Book</a></li>
-            <li><a class="dropdown-item" href=" ">Author</a></li>
           </ul>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <form class="d-flex" role="search" onsubmit="return searchPage(event)">
+  <input id="searchInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+  <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+
+<script>
+function searchPage(event) {
+  event.preventDefault(); // Form submit ka default refresh roko
+  let query = document.getElementById("searchInput").value.toLowerCase();
+
+  // Apne pages ka list banao
+  let pages = {
+    "gam": "/",
+    "home": "/home",
+    "laptops": "/laptops",
+    "cars": "/cars",
+    "books": "/books"
+  };
+
+  // Check karo match milta hai ya nahi
+  if (pages[query]) {
+    window.location.href = pages[query]; // Page open karo
+  } else {
+    alert("Page not found!");
+  }
+}
+</script>
     </div>
   </div>
 </nav>
