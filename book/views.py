@@ -1,37 +1,46 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from book.models import Book,Authors
+from django.shortcuts import render, redirect
+from .models import Book, Authors, Country
 
 def book(request):
-    if request.method=="POST":
+    if request.method == "POST":
         title = request.POST['title']
         image = request.FILES.get('image')
         author_id = request.POST['author']
         author = Authors.objects.get(id=author_id)
         publishyear = request.POST['publishyear']
-        book = Book(title=title, image=image, author=author, publishyear=publishyear)
-        book .save()
-        return redirect("book")
+        
+        Book.objects.create(
+            title=title,
+            image=image,
+            author=author,
+            publishyear=publishyear
+        )
+        return redirect("books")
+
     authors = Authors.objects.all()
-    return render(request, "book_form.html",{"authors":authors})
+    return render(request, "book_form.html", {"authors": authors})
 
 
-
-def authors(request, book_id):
-    book = get_object_or_404(Book, id=book_id)
-
+def create_author(request):
     if request.method == "POST":
-        name = request.POST['name']
-        image = request.FILES.get('image')
-        dateofbirth = request.POST['dateofbirth']
-        publishedbooks = request.POST['publishedbooks']
+        name = request.POST.get("name")
+        image = request.FILES.get("image")
+        publishedbooks = request.POST.get("publishedbooks")
+        dateofbirth = request.POST.get("dateofbirth")
+        country_id = request.POST.get("country")
 
-        author = Authors(
+        country = Country.objects.get(id=country_id)
+
+        Authors.objects.create(
             name=name,
             image=image,
-            dateofbirth=dateofbirth,
-            publishedbooks=publishedbooks,
-            book=book  # connect author to this book
+            country=country,
+            dateofbirth=dateofbirth, 
+            publishedbooks=publishedbooks   # naya line
         )
-        author.save()
+        return redirect("author_form")
 
-    return render(request, "add_authors.html", {"book": book})
+    countries = Country.objects.all()
+
+    return render(request, "author_form.html", {"countries": countries})
+

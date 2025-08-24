@@ -44,3 +44,15 @@ def books_view(request):
         "books": books
     }
     return render(request, 'books.html', context)
+
+def author_view(request):
+    author = Book.objects.all()
+    context = {
+        "authors": author
+    }
+    return render(request, 'author.html', context)
+
+def anime_list(request):
+    from anime.models import Anime
+    animes = Anime.objects.all()
+    return render(request, "anime_list.html", {"animes": animes})

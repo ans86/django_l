@@ -29,14 +29,18 @@ urlpatterns = [
     path('cars/', views.cars, name="cars" ),
     path('author_form/', views.author_form_view, name="author_form" ),
     path('books/', views.books_view, name="books" ),
-    #Contact app urls
-    path('contact_form/', include('contact.urls')),
-    path('game_form/', include('game.urls')),
-    path('laptop_form/', include('laptop.urls')),
-    path('car/', include('car.urls')),
-    path('book_form/', include('book.urls')),
-    
+    path('author/', views.author_view, name="author" ),
+    path('animes/', views.anime_list, name="anime_list"),
 
+    #Contact app urls
+    path('contact/', include('contact.urls')),
+    path('game/', include('game.urls')),
+    path('laptop/', include('laptop.urls')),
+    path('car/', include('car.urls')),
+    path('book/', include('book.urls')),
+    path('anime/', include('anime.urls')),
 ]
+
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

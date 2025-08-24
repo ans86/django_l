@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Country(models.Model):
     name = models.CharField(max_length=100)
 
@@ -12,7 +13,7 @@ class Authors(models.Model):
     image = models.ImageField(upload_to="authors/")
     dateofbirth = models.CharField(max_length=255)
     publishedbooks = models.IntegerField()
-    country = models.ForeignKey(Country, on_delete=models.CASCADE, null=True, blank=True)
+    country = models.ForeignKey(Country, on_delete=models.CASCADE, related_name="authors", null=True, blank=True)
     
 
     def __str__(self):

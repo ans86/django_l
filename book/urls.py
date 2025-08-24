@@ -1,8 +1,7 @@
 from django.urls import path
-from .views import book,authors
+from . import views
 
 urlpatterns = [
-    path('', book, name='book'),
-    path('book/<int:book_id>/add-author/',authors, name='add_author'),
-
+    path("form", views.book, name="book"),  
+    path("author_form/", views.create_author, name="author_form"),  # independent author form
 ]
